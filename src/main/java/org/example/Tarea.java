@@ -3,14 +3,14 @@ package org.example;
 public class Tarea {
     private String descripcion;
     private boolean completada;
+    private Prioridad prioridad;
 
-    // Constructor
-    public Tarea(String descripcion) {
+    public Tarea(String descripcion, Prioridad prioridad) {
         this.descripcion = descripcion;
         this.completada = false;
+        this.prioridad = prioridad;
     }
 
-    // Getters
     public String getDescripcion() {
         return descripcion;
     }
@@ -19,18 +19,20 @@ public class Tarea {
         return completada;
     }
 
-    // Método para marcar la tarea como completada
     public void marcarComoCompletada() {
         this.completada = true;
     }
 
-    // Método para modificar la descripción de la tarea
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public Prioridad getPrioridad() {
+        return prioridad;
+    }
+
+    public void setPrioridad(Prioridad prioridad) {
+        this.prioridad = prioridad;
     }
 
     @Override
     public String toString() {
-        return descripcion + (completada ? " (Completada)" : " (Pendiente)");
+        return descripcion + " (Prioridad: " + prioridad + ") " + (completada ? "(Completada)" : "(Pendiente)");
     }
 }
